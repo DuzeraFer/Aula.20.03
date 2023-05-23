@@ -10,8 +10,8 @@ public class _GameManager : MonoBehaviour
     public static float timer = 0;
     public static int lifes = 3;
 
-    public TextMeshProUGUI scoreText, timerText, lifesText, scoreGameOverText;
-    public GameObject gameMenu, gameOverMenu, startMenu;
+    public TextMeshProUGUI scoreText, timerText, lifesText, pointsGameOverText, pointsVictoryText, timeLeftGameOverText, timeLeftVictoryText, lifesLeftGameOverText, lifesLeftVictoryText;
+    public GameObject gameMenu, gameOverMenu, startMenu, victoryMenu;
 
     public _SpawnManager spawnManager;
 
@@ -26,9 +26,8 @@ public class _GameManager : MonoBehaviour
         {
             _GameManager.startGame = false;
             _GameManager.timer = 0;
-            gameMenu.SetActive(false);
-            gameOverMenu.SetActive(true);
-            scoreGameOverText.text = "SCORE: " + _GameManager.score.ToString();
+
+            GameOver();       
 
             foreach (var item in spawnManager.spawnedObjects)
             {
@@ -39,7 +38,6 @@ public class _GameManager : MonoBehaviour
         timerText.text = "TIME: " + _GameManager.timer.ToString("F0");
         scoreText.text = "SCORE: " + _GameManager.score.ToString();
         lifesText.text = "LIFES: " + _GameManager.lifes.ToString();
-        scoreGameOverText.text = "SCORE: " + _GameManager.score.ToString();
     }
 
     public void StartGame()
@@ -60,6 +58,26 @@ public class _GameManager : MonoBehaviour
         _GameManager.score += score;
         _GameManager.timer += timer;
         _GameManager.lifes -= lifes;
+    }
+
+    public void Victory()
+    {
+        pointsVictoryText.text = "SCORE: " + _GameManager.score.ToString();
+        lifesLeftVictoryText.text = "SCORE: " + _GameManager.score.ToString();
+        timeLeftVictoryText.text = "SCORE: " + _GameManager.score.ToString();
+
+        gameMenu.SetActive(false);
+        victoryMenu.SetActive(true);
+    }
+
+    public void GameOver()
+    {
+        pointsGameOverText.text = "SCORE: " + _GameManager.score.ToString();
+        timeLeftGameOverText.text = "SCORE: " + _GameManager.score.ToString();
+        lifesLeftGameOverText.text = "SCORE: " + _GameManager.score.ToString();
+
+        gameMenu.SetActive(false);
+        gameOverMenu.SetActive(true);
     }
 
     public void RestartGame()

@@ -46,7 +46,8 @@ public class _SpawnManager : MonoBehaviour
             int randomSpawn = Random.Range(0, 100);
 
                 if (randomSpawn <= 49) extraSpawn = Instantiate(spawnObjects[3], pos, Quaternion.identity);
-                else if (randomSpawn >= 50) extraSpawn = Instantiate(spawnObjects[4], pos, Quaternion.identity);
+                else if (randomSpawn >= 50 && randomSpawn < 90) extraSpawn = Instantiate(spawnObjects[4], pos, Quaternion.identity);
+                else if (randomSpawn >= 90) extraSpawn = Instantiate(spawnObjects[5], pos, Quaternion.identity);
 
             spawnedObjects.Add(extraSpawn);
 
