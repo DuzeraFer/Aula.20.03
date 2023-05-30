@@ -9,6 +9,7 @@ TagManager:
   - Background
   - Balloon
   - Time
+  - StarWin
   layers:
   - Default
   - TransparentFX

@@ -10,8 +10,8 @@ public class _GameManager : MonoBehaviour
     public static float timer = 0;
     public static int lifes = 3;
 
-    public TextMeshProUGUI scoreText, timerText, lifesText, pointsGameOverText, pointsVictoryText, timeLeftGameOverText, timeLeftVictoryText, lifesLeftGameOverText, lifesLeftVictoryText;
-    public GameObject gameMenu, gameOverMenu, startMenu, victoryMenu;
+    public static TextMeshProUGUI scoreText, timerText, lifesText, pointsGameOverText, pointsVictoryText, timeLeftGameOverText, timeLeftVictoryText, lifesLeftGameOverText, lifesLeftVictoryText;
+    public static GameObject gameMenu, gameOverMenu, startMenu, victoryMenu;
 
     public _SpawnManager spawnManager;
 
@@ -60,7 +60,7 @@ public class _GameManager : MonoBehaviour
         _GameManager.lifes -= lifes;
     }
 
-    public void Victory()
+    public static void Victory()
     {
         pointsVictoryText.text = "SCORE: " + _GameManager.score.ToString();
         lifesLeftVictoryText.text = "SCORE: " + _GameManager.score.ToString();

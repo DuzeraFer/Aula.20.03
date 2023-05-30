@@ -45,6 +45,13 @@ public class _Shoot : MonoBehaviour
                         Instantiate(smokeBallon, hit.point, Quaternion.LookRotation(hit.normal));
                         _GameManager.IncScore(0, 15, 0);
                         break;
+                    case "StarWin":
+                        audioSource.Play();
+                        Destroy(hit.transform.gameObject);
+                        Instantiate(smokeBallon, hit.point, Quaternion.LookRotation(hit.normal));
+                        _GameManager.IncScore(150, 0, 0);
+                        _GameManager.Victory();
+                        break;
                     default:
                     break;
                 }
